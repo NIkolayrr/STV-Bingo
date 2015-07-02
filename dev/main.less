@@ -44,31 +44,23 @@
 }
 
 /*=============== MEDIA QUERIES ===============*/
-@desktop: ~" only screen and (min-width: 960px) and (max-width: 1600px)";
+@desktop: ~" only screen and (min-width: 960px)";
 @tablet: ~"only screen and (min-width: 720px) and (max-width: 959px)";
 @smartphone: ~"only screen and (max-width: 736px)";
 /* ========= clearfix ========= */
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.cf:after {
   clear: both;
-  height: 0;
 }
 
-.clearfix {
-  display: inline-block;
+.cf {
+  *zoom: 1;
 }
-
-* html .clearfix {
-  height: 1%;
-}
-
-.clearfix {
-  display: block;
-}
-
 /*=============== BASE STYLES ============ */
 * {
   .box-sizing();
@@ -166,7 +158,6 @@ body {
   }
 
   .sign-form {
-    .box-sizing();
     .border-radius(0 0 10px 10px);
 
     width: 500px;
@@ -204,33 +195,18 @@ body {
   }
 
   nav {
-    .box-sizing();
-
     clear: both;
     padding: 30px;
 
     ul {
+      .border-radius(10px);
+
       list-style: none;
       height: 50px;
       width: 720px;
       float: right;
-      background-image: url("../img/nav/nav.png");
-    }
-    &::before {
-      content: '';
-      position: absolute;
-      width: 9px;
-      height: 52px;
-      margin-left: 241px;
-      background: url("../img/nav/navLeft.png");
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      width: 9px;
-      height: 52px;
-      margin-left: 970px;
-      background: url("../img/nav/navRight.png");
+      background: linear-gradient(to bottom,@Pink 0,#d23e6f 100%);
+      border: 1px solid darken(@Pink,20%);
     }
     li {
       float: left;
@@ -261,11 +237,6 @@ body {
     }
   }
 
-  .slots-tabs {
-    a {
-      padding: 10px 40px;
-    }
-  }
 }
 /*============ CONTENT WHICH IS ALREADY RESPONSIVE ============*/
 // BEGIN TABLE
@@ -334,7 +305,6 @@ body {
 
 // BEGIN SLOTS
 .slots-games {
-
   h4 {
     color: @DarkBlue;
     font-weight: bold;
@@ -373,26 +343,28 @@ body {
 }
 
 .slots-tabs {
-  margin-bottom: 20px;
   border-bottom: 1px solid @DarkBlue;
-  padding-bottom: 8px;
 
   a {
     .border-radius(5px 5px 0 0);
 
     margin: 10px;
+    padding: 10px 20px 5px 30px;
     color: @DarkBlue;
     font-weight: bold;
+    background: #d9e6ec;
+    background-repeat: no-repeat;
+    background-position: 5px 8px;
 
     &:first-child {
       background: @DarkBlue url("../img/star.png") no-repeat 5px 8px;
       color: white;
     }
     &:nth-of-type(2) {
-      background: #d9e6ec url("../img/u.png") no-repeat 5px 8px;
+      background-image: url("../img/u.png");
     }
     &:last-child {
-      background: #d9e6ec url("../img/crown.png") no-repeat 5px 8px;
+      background-image: url("../img/crown.png");
     }
   }
 }
