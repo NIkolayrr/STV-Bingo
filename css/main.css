@@ -67,6 +67,13 @@ body {
     color: white;
     font-size: 1.2em;
   }
+  .slider-btn {
+    position: relative;
+    text-align: center;
+    margin-top: -40px;
+    margin-left: 70%;
+    padding: 0.5% 1%;
+  }
   .ribbon li {
     display: block;
     text-align: center;
@@ -150,8 +157,8 @@ body {
   }
   nav li {
     float: left;
-    margin: 15px 0 0 0;
-    padding-left: 8px;
+    margin: 15px 0;
+    padding-left: 10px;
     box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2), -1px 0 0 rgba(0, 0, 0, 0.2);
   }
   nav li a {
@@ -164,6 +171,14 @@ body {
   nav li a:hover {
     color: #ffffff;
     text-decoration: none;
+  }
+  .bingo-slider .slider-btn {
+    border-radius: 5px;
+    background-clip: padding-box;
+    margin-top: -60px;
+    margin-left: 55%;
+    font-weight: bolder;
+    padding: 10px 30px;
   }
   .ribbon {
     list-style: none;
@@ -179,6 +194,14 @@ body {
 }
 .bingo-slider img {
   width: 100%;
+}
+.bingo-slider .slider-btn {
+  background: -webkit-linear-gradient(top, #e574a1 0, #d23e6f 100%);
+  background: linear-gradient(to bottom, #e574a1 0, #d23e6f 100%);
+  color: white;
+  position: absolute;
+  box-shadow: 0 1px 3px #000;
+  font-size: 16px;
 }
 .ribbon {
   background: #953092;
@@ -301,10 +324,7 @@ body {
   background-image: url("../img/crown.png");
 }
 .adds {
-  margin-top: 10px;
-}
-.adds img {
-  margin-right: 18px;
+  padding-top: 10px;
 }
 /*================ FOOTER ===============*/
 footer {
